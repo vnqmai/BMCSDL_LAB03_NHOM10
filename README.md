@@ -6,5 +6,5 @@
  - Chọn Server name
  - Chọn Database name: QLSV
  - OK
- - Mở folder Tables và kéo các bảng vào file QLSV.dbml
- - Mở folder Store Procedures và kéo các sp (file taoStoreProcedure_C#_lab03_nhom.sql) vào file QLSV.dbml
+ - Mở folder Tables và kéo các bảng vào file QLSV.dbml (có file script taoTable.sql tạo table trong mục SQLFiles)
+ - Mở folder Store Procedures và kéo các sp (file taoStoreProcedure_C#_lab03_nhom.sql trong mục SQLFiles) vào file QLSV.dbml
