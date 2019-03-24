@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="QLSV">
+  <DataContextMoniker Name="/QLSVDataContext" />
+  <nestedChildShapes>
+    <classShape Id="df717d07-d10d-414d-9fc3-dd28a4961d53" absoluteBounds="0.75, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/QLSVDataContext/LOP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b2b3bd11-e7b6-4fb1-be17-5cae90cb0097" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="51ea97ca-2962-419f-8e1f-602ba16eb262" absoluteBounds="3.75, 0.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/QLSVDataContext/SINHVIEN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="be87bc34-e661-4f8d-82c5-07a463d25db5" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="377863f9-bd35-4645-91e7-be41c4b137eb" absoluteBounds="0.75, 3.125, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/QLSVDataContext/NHANVIEN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="514b6b13-adc8-4c9c-9b8f-6de770aa583d" absoluteBounds="0.765, 3.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
