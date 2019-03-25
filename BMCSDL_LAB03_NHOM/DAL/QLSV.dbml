@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLSV" Class="QLSVDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-J7JJ24M;Initial Catalog=QLSV;Integrated Security=True" SettingsObjectName="BMCSDL_LAB03_NHOM.Properties.Settings" SettingsPropertyName="QLSVConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.LOP" Member="LOPs">
-    <Type Name="LOP">
-      <Column Name="MALOP" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TENLOP" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="MANV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+  <Table Name="dbo.BANGDIEM" Member="BANGDIEMs">
+    <Type Name="BANGDIEM">
+      <Column Name="MASV" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAHP" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DIEMTHI" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="SINHVIEN_BANGDIEM" Member="SINHVIEN" ThisKey="MASV" OtherKey="MASV" Type="SINHVIEN" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="HOCPHAN_BANGDIEM" Member="HOCPHAN" ThisKey="MAHP" OtherKey="MAHP" Type="HOCPHAN" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.SINHVIEN" Member="SINHVIENs">
@@ -16,6 +18,25 @@
       <Column Name="MALOP" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="TENDN" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="MATKHAU" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="SINHVIEN_BANGDIEM" Member="BANGDIEMs" ThisKey="MASV" OtherKey="MASV" Type="BANGDIEM" />
+      <Association Name="LOP_SINHVIEN" Member="LOP" ThisKey="MALOP" OtherKey="MALOP" Type="LOP" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOCPHAN" Member="HOCPHANs">
+    <Type Name="HOCPHAN">
+      <Column Name="MAHP" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENHP" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SOTC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="HOCPHAN_BANGDIEM" Member="BANGDIEMs" ThisKey="MAHP" OtherKey="MAHP" Type="BANGDIEM" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LOP" Member="LOPs">
+    <Type Name="LOP">
+      <Column Name="MALOP" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENLOP" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="LOP_SINHVIEN" Member="SINHVIENs" ThisKey="MALOP" OtherKey="MALOP" Type="SINHVIEN" />
+      <Association Name="NHANVIEN_LOP" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.NHANVIEN" Member="NHANVIENs">
@@ -26,6 +47,7 @@
       <Column Name="LUONG" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="TENDN" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="MATKHAU" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="NHANVIEN_LOP" Member="LOPs" ThisKey="MANV" OtherKey="MANV" Type="LOP" />
     </Type>
   </Table>
   <Function Name="dbo.KIEMTRATAIKHOAN" Method="KIEMTRATAIKHOAN">

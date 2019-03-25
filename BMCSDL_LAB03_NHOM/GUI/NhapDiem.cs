@@ -13,7 +13,7 @@ namespace BMCSDL_LAB03_NHOM.GUI
     public partial class NhapDiem : Form
     {
         public NhapDiem()
-        {
+        {            
             InitializeComponent();
         }
     }
